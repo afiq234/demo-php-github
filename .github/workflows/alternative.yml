@@ -41,7 +41,7 @@ jobs:
       - name: Pull Latest Code in Deployment Directory
         shell: powershell
         run: |
-          $deployDir = "D:\CodingStorage\htp_github\htp-deployment\demo-php-github\src"
+          $deployDir = "D:\CodingStorage\htp_github\htp-deployment\demo-php-github"
 
           if (-not (Test-Path $deployDir)) {
               throw "Deployment directory not found: $deployDir. Clone the repo there first."
@@ -69,7 +69,7 @@ jobs:
 
       - name: Install Composer Dependencies (Deployment)
         shell: powershell
-        working-directory: D:\CodingStorage\htp_github\htp-deployment\demo-php-github\src
+        working-directory: D:\CodingStorage\htp_github\htp-deployment\demo-php-github
         run: composer install --no-dev --no-interaction --prefer-dist --optimize-autoloader
 
       - name: Smoke Test Deployment
@@ -89,7 +89,7 @@ jobs:
         run: |
           Write-Host "Deployment complete"
           Write-Host "Commit: ${{ github.sha }}"
-          Write-Host "Deployed to: D:\CodingStorage\htp_github\htp-deployment\demo-php-github\src"
+          Write-Host "Deployed to: D:\CodingStorage\htp_github\htp-deployment\demo-php-github"
           Write-Host ""
           Write-Host "To run the app:"
           Write-Host "  cd D:\CodingStorage\htp_github\htp-deployment\demo-php-github\src"
