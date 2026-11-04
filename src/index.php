@@ -85,7 +85,7 @@ $products = $pdo->query("SELECT * FROM products ORDER BY id DESC")->fetchAll();
 </head>
 <body>
 <div class="container">
-    <h1>📦 Welcome Stock System Manager</h1>
+    <h1>📦 Welcome Stock System Manager - Managing</h1>
 
     <?php if ($message): ?>
         <div class="message"><?= htmlspecialchars($message) ?></div>
